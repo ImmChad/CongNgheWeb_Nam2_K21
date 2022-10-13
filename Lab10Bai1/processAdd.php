@@ -9,10 +9,23 @@
 
         $db = $m->$dbname;
 
-        print_r(json_decode($_REQUEST['valueSSS']));
+        $scode = json_decode($_REQUEST['valueSSS'])[0];
+        $snam = json_decode($_REQUEST['valueSSS'])[1];
+        $class = json_decode($_REQUEST['valueSSS'])[2];
+        $age = json_decode($_REQUEST['valueSSS'])[3];
 
 
+        $db = $m->$dbname;
+        //    Insert Student 
+        $student = $db->student;
+        $student->insertOne(array(
+            'scode' => $scode,
+            'snam' => $snam,
+            'class' => $class,
+            'age' => $age
+        ));
 
+        header("location: browse.php");
 
     } catch (Exception $ex) {
         print $ex;

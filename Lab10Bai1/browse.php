@@ -73,7 +73,7 @@ $student="student";
 $collection = $db->$student;
 
 if($collection->find()){
-	display($collection,"",array("scode"=>-1),"DANH SÁCH SINH VIÊN");
+	display($collection,"",array("scode"=> 1),"DANH SÁCH SINH VIÊN");
 } 
 else{
 	header("location:error.html");
